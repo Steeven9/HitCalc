@@ -1,6 +1,6 @@
 ## IntelliJ stuff
 .idea/
-out/
+out/META-INF/
 
 ## LaTeX
 *.log
