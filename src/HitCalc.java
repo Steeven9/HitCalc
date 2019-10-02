@@ -1,5 +1,5 @@
 import java.text.DecimalFormat;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * The main interface of the application.
@@ -9,24 +9,50 @@ public final class HitCalc {
     /**
      * The main method launching the application.
      *
-     * @param args command-line arguments (not used)
      */
-    public static final void main(String args[]) {
+    public static final void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         final DecimalFormat df = new DecimalFormat("#.##");
 
-        System.out.print("Enemy's AC: ");
-        final double ac = scanner.nextDouble();
+        double ac = 0;
+        double mod = 0;
 
-        System.out.print("Mod: ");
-        final double mod = scanner.nextDouble();
+        System.out.println("Numbers only, 0 to exit");
 
-        final double probHit = (20 - ac + mod + 1) / 20;
-        final double probMiss = (ac - 1) / 20;
-        final double resultAdv = 1 - (probMiss * probMiss);
-        final double resultDis = probHit * probHit;
+        while (true) {
+            System.out.print("\nEnemy's AC: ");
+            try {
+                ac = scanner.nextDouble();
+            } catch (InputMismatchException ime) {
+                System.out.println("NUMBERS ONLY YOU CUNT");
+                System.exit(1);
+            }
 
-        System.out.printf("Normal hit rate: %s\nAdvantage: %s - Disadvantage: %s\n",
-                df.format(probHit), df.format(resultAdv), df.format(resultDis));
+            if (ac == 0) {
+                System.exit(0);
+            }
+
+            System.out.print("Mod: ");
+            try {
+                mod = scanner.nextDouble();
+            } catch (InputMismatchException ime) {
+                System.out.println("NUMBERS ONLY YOU CUNT");
+                System.exit(1);
+            }
+
+            final double probHit = (20 - ac + mod + 1) / 20;
+            final double probMiss = (ac - mod - 1) / 20;
+            final double resultAdv = 1 - (probMiss * probMiss);
+            final double resultDis = probHit * probHit;
+
+            if (probHit == 0) {
+                System.out.println("Impossible to hit my dude");
+            } else if (probHit >= 1) {
+                System.out.println("Guaranteed hit, unless you roll a 1");
+            } else {
+                System.out.printf("Normal hit rate: %s\nAdvantage: %s - Disadvantage: %s\n",
+                        df.format(probHit), df.format(resultAdv), df.format(resultDis));
+            }
+        }
     }
 }
