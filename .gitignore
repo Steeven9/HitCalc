@@ -1,0 +1,15 @@
+## Android studio
+project/app/build
+
+## LaTeX
+*.log
+*.aux
+*.synctex.gz
+*.toc
+
+## OS trash
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
