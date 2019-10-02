@@ -1,5 +1,6 @@
-## Android studio
-project/app/build
+## IntelliJ stuff
+.idea/
+out/
 
 ## LaTeX
 *.log
