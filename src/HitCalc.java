@@ -45,8 +45,8 @@ public final class HitCalc {
             final double resultAdv = 1 - (probMiss * probMiss);
             final double resultDis = probHit * probHit;
 
-            if (probHit == 0) {
-                System.out.println("Impossible to hit my dude");
+            if (probHit <= 0) {
+                System.out.println("Impossible to hit, unless you roll a 20");
             } else if (probHit >= 1) {
                 System.out.println("Guaranteed hit, unless you roll a 1");
             } else {
