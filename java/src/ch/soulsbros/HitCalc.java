@@ -1,3 +1,5 @@
+package ch.soulsbros;
+
 import java.text.DecimalFormat;
 import java.util.*;
 
@@ -10,7 +12,7 @@ public final class HitCalc {
      * The main method launching the application.
      *
      */
-    public static final void main(String[] args) {
+    public static void main(String[] args) {
         final Scanner scanner = new Scanner(System.in);
         final DecimalFormat df = new DecimalFormat("#.##");
 
@@ -56,3 +58,4 @@ public final class HitCalc {
         }
     }
 }
+

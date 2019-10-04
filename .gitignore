@@ -1,7 +1,3 @@
-## IntelliJ stuff
-.idea/
-out/META-INF/
-
 ## LaTeX
 *.log
 *.aux
